@@ -168,6 +168,7 @@ fn view_header() -> Node<Msg> {
             St::AlignItems => "center",
             St::FontSize => px(30),
             St::UserSelect => "none",
+            St::ZIndex => "1",
         },
         h1!("Algo"),
         ul![
@@ -231,7 +232,7 @@ fn view_play(model: &Model) -> Node<Msg> {
             },
             style! {
                 St::Position => "relative",
-                St::Padding => "5vh 5vh 5vw 5vw",
+                St::Padding => "0 0 5vw 5vw",
             },
             IF!(model.is_finished => view_result(model)),
         ],
