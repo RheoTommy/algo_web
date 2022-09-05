@@ -42,13 +42,13 @@ fn model_default() -> Model {
     let mut points = x
         .iter()
         .flat_map(|&i| y.iter().map(move |&j| (i as i64, j as i64)))
-        .map(|(i, j)| (i + rng.gen_range(-2, 3), j + rng.gen_range(-2, 3)))
+        .map(|(i, j)| (i + rng.gen_range(-2..=2), j + rng.gen_range(-2..=2)))
         .map(|(i, j)| (i as u64, j as u64))
         .collect::<Vec<_>>();
     points.shuffle(&mut rng);
 
-    let n = rng.gen_range(12, 13);
-    let numbers = (0..n).map(|_| rng.gen_range(-100, 101)).collect::<Vec<_>>();
+    let n = rng.gen_range(12..13);
+    let numbers = (0..n).map(|_| rng.gen_range(-100..=100)).collect::<Vec<_>>();
 
     points.resize(n, (50, 50));
 
